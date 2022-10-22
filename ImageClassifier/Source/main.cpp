@@ -1,12 +1,14 @@
 #include <iostream>
-#include <opencv2/opencv.hpp>
+#include "../Header/ImageProcess.hpp"
+
+std::shared_ptr<ImageProccess> img_process = std::make_shared<ImageProccess>();
 
 int main() {
-    std::cout << "Hello\n";
-    cv::Mat Image = cv::imread("C:/Users/Antho/OneDrive/Desktop/test.jpg", cv::IMREAD_COLOR);
-    cv::imshow("Image Window", Image);
-    int k = cv::waitKey(0);
-    if(k == 'c') { cv::destroyAllWindows(); }
+    img_process->ShowImage("C:/Users/Antho/OneDrive/Desktop/random_test_images/test1.jpg");
+    img_process->ShowImage("C:/Users/Antho/OneDrive/Desktop/random_test_images/test2.jpg");
+    img_process->ResizeImages("C:/Users/Antho/OneDrive/Desktop/random_test_images");
+    img_process->ShowImage("C:/Users/Antho/OneDrive/Desktop/random_test_images/test1.jpg");
+    img_process->ShowImage("C:/Users/Antho/OneDrive/Desktop/random_test_images/test2.jpg");
     return 0;
 
 }
